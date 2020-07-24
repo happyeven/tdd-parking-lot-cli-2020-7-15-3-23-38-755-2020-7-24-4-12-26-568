@@ -48,4 +48,23 @@ public class ParkingTest {
         Assertions.assertNotNull(firstTicket);
         Assertions.assertNotNull(secondTicket);
     }
+
+    @Test
+    void should_return_2_car_when_fetch_car_given_2_ticket_and_parking_boy_and_2_car() {
+        //given
+        int firstToken = 1;
+        int secondToken = 2;
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Ticket firstTicket = new Ticket(firstToken);
+        Ticket secondTicket = new Ticket(secondToken);
+        Car firstTargetCar = new Car(firstToken);
+        Car secondTargetCar = new Car(secondToken);
+        //when
+        Car firstFetchingCar = parkingBoy.fetchingCar(firstTicket);
+        Car secondFetchingCar = parkingBoy.fetchingCar(secondTicket);
+        //then
+        Assertions.assertEquals(firstToken,firstFetchingCar.getCarId());
+        Assertions.assertEquals(secondToken,secondFetchingCar.getCarId());
+
+    }
 }
