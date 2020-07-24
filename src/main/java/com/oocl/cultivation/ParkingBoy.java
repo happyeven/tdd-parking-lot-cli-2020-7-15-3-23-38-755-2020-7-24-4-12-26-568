@@ -11,6 +11,6 @@ public class ParkingBoy {
     }
 
     public Car fetchingCar(Ticket ticket) {
-        return new Car(0);
+        return new Car(ticket.getTicketId());
     }
 }
