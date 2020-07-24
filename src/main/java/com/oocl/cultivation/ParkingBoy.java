@@ -13,13 +13,14 @@ public class ParkingBoy {
     }
 
     Ticket parkingCar(Car car) {
-        return this.parkingLot.parkingCarTOParkingLot(car);
+        return car == null ? null : this.parkingLot.parkingCarTOParkingLot(car);
     }
 
     public Car fetchingCar(Ticket ticket) {
         return this.parkingLot.fetchingCarFromParkingLot(ticket);
     }
-    public Car fetchingCarWithoutTicket(){
+
+    public Car fetchingCarWithoutTicket() {
         return null;
     }
 }
