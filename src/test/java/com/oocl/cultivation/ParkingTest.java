@@ -63,8 +63,19 @@ public class ParkingTest {
         Car firstFetchingCar = parkingBoy.fetchingCar(firstTicket);
         Car secondFetchingCar = parkingBoy.fetchingCar(secondTicket);
         //then
-        Assertions.assertEquals(firstTargetCar,firstFetchingCar);
-        Assertions.assertEquals(secondTargetCar,secondFetchingCar);
+        Assertions.assertEquals(firstTargetCar, firstFetchingCar);
+        Assertions.assertEquals(secondTargetCar, secondFetchingCar);
+    }
 
+    @Test
+    void should_return_null_when_parking_car_given_wrong_ticket_and_parking_boy() {
+        //given
+        int token = 20;
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Ticket wrongTicket = new Ticket(token);
+        //when
+        Car fetchingCar = parkingBoy.fetchingCar(wrongTicket);
+        //then
+        Assertions.assertNull(fetchingCar);
     }
 }
