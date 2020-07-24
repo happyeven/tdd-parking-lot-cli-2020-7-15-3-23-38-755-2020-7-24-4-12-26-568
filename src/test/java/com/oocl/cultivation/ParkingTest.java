@@ -91,4 +91,19 @@ public class ParkingTest {
         //then
         Assertions.assertNull(secondCar);
     }
+
+    @Test
+    void should_return_null_when_parking_boy_parking_car_given_car_and_parking_lot_has_no_position() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        int parkingCarIndex = 0;
+        for ( ; parkingCarIndex < 10; parkingCarIndex++) {
+            parkingBoy.parkingCar(new Car(parkingCarIndex));
+        }
+        //when
+        Ticket ticket = parkingBoy.parkingCar(new Car(parkingCarIndex));
+        //then
+        Assertions.assertNull(ticket);
+    }
 }
