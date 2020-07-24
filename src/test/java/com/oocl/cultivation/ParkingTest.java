@@ -63,8 +63,8 @@ public class ParkingTest {
         Car firstFetchingCar = parkingBoy.fetchingCar(firstTicket);
         Car secondFetchingCar = parkingBoy.fetchingCar(secondTicket);
         //then
-        Assertions.assertEquals(firstToken,firstFetchingCar.getCarId());
-        Assertions.assertEquals(secondToken,secondFetchingCar.getCarId());
+        Assertions.assertEquals(firstTargetCar,firstFetchingCar);
+        Assertions.assertEquals(secondTargetCar,secondFetchingCar);
 
     }
 }
