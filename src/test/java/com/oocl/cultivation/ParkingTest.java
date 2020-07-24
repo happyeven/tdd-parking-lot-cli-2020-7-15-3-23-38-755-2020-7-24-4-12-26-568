@@ -27,8 +27,8 @@ public class ParkingTest {
         //given
         int token = 1;
         ParkingBoy parkingBoy = new ParkingBoy();
-        Ticket ticket = new Ticket(token);
         Car car = new Car(token);
+        Ticket ticket = parkingBoy.parkingCar(car);
         //when
         Car resultCar = parkingBoy.fetchingCar(ticket);
         //then
@@ -55,10 +55,10 @@ public class ParkingTest {
         int firstToken = 1;
         int secondToken = 2;
         ParkingBoy parkingBoy = new ParkingBoy();
-        Ticket firstTicket = new Ticket(firstToken);
-        Ticket secondTicket = new Ticket(secondToken);
         Car firstTargetCar = new Car(firstToken);
         Car secondTargetCar = new Car(secondToken);
+        Ticket firstTicket = parkingBoy.parkingCar(firstTargetCar);
+        Ticket secondTicket = parkingBoy.parkingCar(secondTargetCar);
         //when
         Car firstFetchingCar = parkingBoy.fetchingCar(firstTicket);
         Car secondFetchingCar = parkingBoy.fetchingCar(secondTicket);
