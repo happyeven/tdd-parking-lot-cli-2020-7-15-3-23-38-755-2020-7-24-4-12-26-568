@@ -1,0 +1,35 @@
+given: 1 car 1 parking boy
+when: parking boy parking car
+then: return ticket
+
+given: 1 ticket 1 parkingBoy 1 car
+when: fetch car
+then: return correct car
+
+(park)
+given: 2 cars 1 parkingBoy
+when: parking boy parking car
+then: return 2 ticket
+
+(fetch)
+given: 2cars 1 parkingBoy 2ticket
+when: fetch cars
+then: return 2 correct cars
+
+case 3
+(fetch)
+given: 1 (wrong)ticket 1 parkingBoy 1car
+when: fetch
+then: return null(Car)
+
+case4
+(fetch)
+given: 1(used) ticket 1 parkingBoy
+when: fetch
+then: return null(Car)
+
+case5
+(park)
+given:1 car 1 parkingLot 1 parkingBoy
+when: parking boy parking car
+then: return null(Ticket)
