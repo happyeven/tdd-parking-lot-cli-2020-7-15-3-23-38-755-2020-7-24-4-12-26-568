@@ -35,4 +35,17 @@ public class ParkingTest {
         Assertions.assertEquals(car.getCarId(), resultCar.getCarId());
     }
 
+    @Test
+    void should_return_2_ticket_when_parking_boy_parking_car_given_2_car_and_parking_boy() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Car firstCar = new Car(1);
+        Car secondCar = new Car(2);
+        //when
+        Ticket firstTicket = parkingBoy.parkingCar(firstCar);
+        Ticket secondTicket = parkingBoy.parkingCar(secondCar);
+        //then
+        Assertions.assertNotNull(firstTicket);
+        Assertions.assertNotNull(secondTicket);
+    }
 }
