@@ -117,4 +117,16 @@ public class ParkingTest {
         //then
         Assertions.assertNull(car);
     }
+
+    @Test
+    void should_return_null_when_parking_boy_parking_car_given_car_is_null() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        Car car = null;
+        //when
+        Ticket ticket = parkingBoy.parkingCar(car);
+        //then
+        Assertions.assertNull(ticket);
+    }
 }
