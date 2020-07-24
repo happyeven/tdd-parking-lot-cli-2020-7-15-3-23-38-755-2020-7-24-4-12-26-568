@@ -78,4 +78,17 @@ public class ParkingTest {
         //then
         Assertions.assertNull(fetchingCar);
     }
+
+    @Test
+    void should_return_null_when_parking_car_given_used_ticket_and_parking_boy() {
+        //given
+        int token = 20;
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        Ticket ticket = new Ticket(token);
+        Car firstCar = parkingBoy.fetchingCar(ticket);
+        //when
+        Car secondCar = parkingBoy.fetchingCar(ticket);
+        //then
+        Assertions.assertNull(secondCar);
+    }
 }
