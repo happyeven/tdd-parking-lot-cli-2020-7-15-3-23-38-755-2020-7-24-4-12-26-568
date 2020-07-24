@@ -19,4 +19,7 @@ public class ParkingBoy {
     public Car fetchingCar(Ticket ticket) {
         return this.parkingLot.fetchingCarFromParkingLot(ticket);
     }
+    public Car fetchingCarWithoutTicket(){
+        return new Car(1);
+    }
 }

@@ -106,4 +106,15 @@ public class ParkingTest {
         //then
         Assertions.assertNull(ticket);
     }
+
+    @Test
+    void should_return_null_when_parking_boy_fetch_car_given_no_ticket() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        //when
+        Car car = parkingBoy.fetchingCarWithoutTicket();
+        //then
+        Assertions.assertNull(car);
+    }
 }
