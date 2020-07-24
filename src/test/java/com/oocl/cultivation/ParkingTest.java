@@ -80,7 +80,7 @@ public class ParkingTest {
     }
 
     @Test
-    void should_return_null_when_parking_car_given_used_ticket_and_parking_boy() {
+    void should_return_null_when_fetching_car_given_used_ticket_and_parking_boy() {
         //given
         int token = 20;
         ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
