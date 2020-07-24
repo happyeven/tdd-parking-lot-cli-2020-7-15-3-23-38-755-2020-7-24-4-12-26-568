@@ -6,12 +6,17 @@ package com.oocl.cultivation;
  * @Version 1.0
  */
 public class ParkingBoy {
+    private ParkingLot parkingLot;
+
+    public ParkingBoy(ParkingLot parkingLot) {
+        this.parkingLot = parkingLot;
+    }
 
     Ticket parkingCar(Car car) {
-        return new Ticket(car.getCarId());
+        return this.parkingLot.parkingCarTOParkingLot(car);
     }
 
     public Car fetchingCar(Ticket ticket) {
-        return ticket.getTicketId() != 20 ? new Car(ticket.getTicketId()) : null;
+        return this.parkingLot.fetchingCarFromParkingLot(ticket);
     }
 }

@@ -14,7 +14,7 @@ public class ParkingTest {
     @Test
     void should_return_ticket_when_parking_boy_parking_car_given_car_and_parking_boy() {
         //given
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
         Car car = new Car(1);
         //when
         Ticket ticket = parkingBoy.parkingCar(car);
@@ -26,7 +26,7 @@ public class ParkingTest {
     void should_return_correct_car_when_fetch_car_given_ticket_and_parking_boy_and_car() {
         //given
         int token = 1;
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
         Car car = new Car(token);
         Ticket ticket = parkingBoy.parkingCar(car);
         //when
@@ -38,7 +38,7 @@ public class ParkingTest {
     @Test
     void should_return_2_ticket_when_parking_boy_parking_car_given_2_car_and_parking_boy() {
         //given
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
         Car firstCar = new Car(1);
         Car secondCar = new Car(2);
         //when
@@ -54,7 +54,7 @@ public class ParkingTest {
         //given
         int firstToken = 1;
         int secondToken = 2;
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
         Car firstTargetCar = new Car(firstToken);
         Car secondTargetCar = new Car(secondToken);
         Ticket firstTicket = parkingBoy.parkingCar(firstTargetCar);
@@ -71,7 +71,7 @@ public class ParkingTest {
     void should_return_null_when_parking_car_given_wrong_ticket_and_parking_boy() {
         //given
         int token = 20;
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
         Ticket wrongTicket = new Ticket(token);
         //when
         Car fetchingCar = parkingBoy.fetchingCar(wrongTicket);
