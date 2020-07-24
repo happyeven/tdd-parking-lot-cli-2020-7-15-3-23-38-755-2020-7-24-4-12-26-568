@@ -6,5 +6,13 @@ package com.oocl.cultivation;
  * @Version 1.0
  */
 public class Car {
+    private int carId;
 
+    public int getCarId() {
+        return carId;
+    }
+
+    public Car(int carId) {
+        this.carId = carId;
+    }
 }

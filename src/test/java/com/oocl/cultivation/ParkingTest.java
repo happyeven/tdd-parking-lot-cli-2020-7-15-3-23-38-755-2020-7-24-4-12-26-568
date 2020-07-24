@@ -15,10 +15,12 @@ public class ParkingTest {
     void should_return_ticket_when_parking_boy_parking_car_given_car_and_parking_boy() {
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
-        Car car = new Car();
+        Car car = new Car(1);
         //when
         Ticket ticket = parkingBoy.parkingCar(car);
         //then
         Assertions.assertNotNull(ticket);
     }
+
+
 }

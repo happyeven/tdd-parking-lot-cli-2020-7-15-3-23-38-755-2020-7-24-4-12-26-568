@@ -6,5 +6,13 @@ package com.oocl.cultivation;
  * @Version 1.0
  */
 public class Ticket {
+    private int ticketId;
 
+    public int getTicketId() {
+        return ticketId;
+    }
+
+    public Ticket(int ticketId) {
+        this.ticketId = ticketId;
+    }
 }

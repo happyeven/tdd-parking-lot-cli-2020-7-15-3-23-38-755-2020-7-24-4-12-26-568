@@ -7,6 +7,6 @@ package com.oocl.cultivation;
  */
 public class ParkingBoy {
     Ticket parkingCar(Car car) {
-        return new Ticket();
+        return new Ticket(car.getCarId());
     }
 }
