@@ -22,5 +22,17 @@ public class ParkingTest {
         Assertions.assertNotNull(ticket);
     }
 
+    @Test
+    void should_return_correct_car_when_fetch_car_given_ticket_and_parking_boy_and_car() {
+        //given
+        int token = 1;
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Ticket ticket = new Ticket(token);
+        Car car = new Car(token);
+        //when
+        Car resultCar = parkingBoy.fetchingCar(ticket);
+        //then
+        Assertions.assertEquals(car.getCarId(), resultCar.getCarId());
+    }
 
 }

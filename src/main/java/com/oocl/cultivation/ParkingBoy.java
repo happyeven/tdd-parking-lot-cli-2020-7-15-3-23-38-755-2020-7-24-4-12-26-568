@@ -9,4 +9,8 @@ public class ParkingBoy {
     Ticket parkingCar(Car car) {
         return new Ticket(car.getCarId());
     }
+
+    public Car fetchingCar(Ticket ticket) {
+        return new Car(0);
+    }
 }
