@@ -14,7 +14,14 @@ public class ParkingBoy {
     }
 
     Ticket parkingCar(Car car) {
-        return car == null ? null : this.parkingLot.parkingCarTOParkingLot(car);
+        if(car == null){
+            return null;
+        }
+        Ticket ticket = this.parkingLot.parkingCarTOParkingLot(car);
+        if(ticket == null){
+            this.errorMessage = "Not enough position.";
+        }
+        return ticket;
     }
 
     public Car fetchingCar(Ticket ticket) {
