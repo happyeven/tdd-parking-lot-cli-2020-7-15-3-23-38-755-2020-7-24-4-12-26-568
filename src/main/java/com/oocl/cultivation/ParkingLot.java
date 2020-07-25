@@ -3,21 +3,20 @@ package com.oocl.cultivation;
 import java.util.HashMap;
 
 public class ParkingLot {
-    int capacity = 10;
-    HashMap<Ticket, Car> parkingCars = new HashMap<>();
-    String errorMessage;
+    private int availableCapacity = 10;
+    private HashMap<Ticket, Car> parkingCars = new HashMap<>();
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+    public void setCapacity(int availableCapacity) {
+        this.availableCapacity = availableCapacity;
     }
 
     public Ticket parkingCarTOParkingLot(Car car) {
-        if (capacity == 0) {
+        if (availableCapacity == 0) {
             return null;
         }
         Ticket ticket = new Ticket(car.getCarId());
         this.parkingCars.put(ticket, car);
-        capacity--;
+        availableCapacity--;
         return ticket;
     }
 
