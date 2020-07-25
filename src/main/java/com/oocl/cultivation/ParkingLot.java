@@ -17,6 +17,6 @@ public class ParkingLot {
     }
 
     public Car fetchingCarFromParkingLot(Ticket ticket) {
-        return this.parkingCars.get(ticket);
+        return this.parkingCars.remove(ticket);
     }
 }
