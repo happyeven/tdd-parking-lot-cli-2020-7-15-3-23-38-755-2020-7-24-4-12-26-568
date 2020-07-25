@@ -161,4 +161,16 @@ public class ParkingTest {
         //then
         Assertions.assertEquals("Unrecognized parking ticket.",errorMessage);
     }
+
+    @Test
+    void should_return_please_provide_ticket_when_query_error_message_given_without_ticket() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        parkingBoy.fetchingCarWithoutTicket();
+        //when
+        String errorMessage = parkingBoy.queryErrorMessage();
+        //then
+        Assertions.assertEquals("Please provide your parking ticket.",errorMessage);
+    }
 }
