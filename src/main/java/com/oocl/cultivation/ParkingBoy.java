@@ -7,6 +7,7 @@ package com.oocl.cultivation;
  */
 public class ParkingBoy {
     private ParkingLot parkingLot;
+    private String errorMessage = "Unrecognized parking ticket.";
 
     public ParkingBoy(ParkingLot parkingLot) {
         this.parkingLot = parkingLot;
@@ -21,10 +22,11 @@ public class ParkingBoy {
     }
 
     public Car fetchingCarWithoutTicket() {
+        this.errorMessage = "Please provide your parking ticket.";
         return null;
     }
 
     public String queryErrorMessage() {
-        return "Unrecognized parking ticket.";
+        return this.errorMessage;
     }
 }

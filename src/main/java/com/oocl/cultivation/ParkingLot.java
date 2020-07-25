@@ -5,6 +5,7 @@ import java.util.HashMap;
 public class ParkingLot {
     int capacity = 10;
     HashMap<Ticket, Car> parkingCars = new HashMap<>();
+    String errorMessage;
 
     public Ticket parkingCarTOParkingLot(Car car) {
         if (capacity == 0) {
