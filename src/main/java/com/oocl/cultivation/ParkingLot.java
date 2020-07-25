@@ -7,6 +7,10 @@ public class ParkingLot {
     HashMap<Ticket, Car> parkingCars = new HashMap<>();
     String errorMessage;
 
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
     public Ticket parkingCarTOParkingLot(Car car) {
         if (capacity == 0) {
             return null;
