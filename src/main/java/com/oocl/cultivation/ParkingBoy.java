@@ -23,4 +23,8 @@ public class ParkingBoy {
     public Car fetchingCarWithoutTicket() {
         return null;
     }
+
+    public String queryErrorMessage() {
+        return null;
+    }
 }

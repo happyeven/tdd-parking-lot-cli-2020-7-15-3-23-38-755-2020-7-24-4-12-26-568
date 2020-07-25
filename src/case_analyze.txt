@@ -33,3 +33,24 @@ case5
 given:1 car 1 parkingLot 1 parkingBoy
 when: parking boy parking car
 then: return null(Ticket)
+
+story 2
+case1:
+given: 1 does not provide ticket  1 parkingBoy 1 parkingLot
+when: query error message
+then: return message(Unrecognized parking ticket.)
+
+case1:
+given: 1 used ticket  1 parkingBoy 1 parkingLot
+when: query error message
+then: return message(Unrecognized parking ticket.)
+
+case2:
+given: 1 parkingBoy 1 parkingLot
+when: query error message
+then: return message(Please provide your parking ticket.)
+
+case3:
+given: 1 car 1 parkingBoy 1 parkingLot
+when: query error message
+then: return message(Not enough position.)
