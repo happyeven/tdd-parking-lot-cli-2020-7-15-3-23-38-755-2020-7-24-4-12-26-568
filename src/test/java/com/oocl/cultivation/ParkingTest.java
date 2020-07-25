@@ -84,7 +84,8 @@ public class ParkingTest {
         //given
         int token = 20;
         ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
-        Ticket ticket = new Ticket(token);
+        Car car = new Car(token);
+        Ticket ticket = parkingBoy.parkingCar(car);
         Car firstCar = parkingBoy.fetchingCar(ticket);
         //when
         Car secondCar = parkingBoy.fetchingCar(ticket);
