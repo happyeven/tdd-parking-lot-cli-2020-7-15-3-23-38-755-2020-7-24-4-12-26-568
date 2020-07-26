@@ -3,10 +3,15 @@ package com.oocl.cultivation;
 import java.util.HashMap;
 
 public class ParkingLot {
+    private int capacity;
     private int availableCapacity = 10;
     private HashMap<Ticket, Car> parkingCars = new HashMap<>();
 
     public void setCapacity(int availableCapacity) {
+        this.availableCapacity = availableCapacity;
+    }
+
+    public void setAvailableCapacity(int availableCapacity) {
         this.availableCapacity = availableCapacity;
     }
 
