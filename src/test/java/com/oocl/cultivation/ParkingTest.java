@@ -369,5 +369,16 @@ public class ParkingTest {
         Assertions.assertEquals("Unrecognized parking ticket.",errorMessage);
     }
 
-
+    @Test
+    void should_return_Please_provide_your_parking_ticket_when_manager_specify_parking_boy_fetching_car_given_without_ticket() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager(parkingBoy);
+        parkingLotServiceManager.specifyParkingBoyToFetchingCarWithoutTicket(parkingBoy);
+        //when
+        String errorMessage = parkingLotServiceManager.displayErrorMessage(parkingBoy);
+        //then
+        Assertions.assertEquals("Please provide your parking ticket.",errorMessage);
+    }
 }
