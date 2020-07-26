@@ -21,4 +21,8 @@ public class ParkingLotServiceManager {
         }
         return null;
     }
+
+    public Car specifyParkingBoyToFetchingCar(ParkingBoy parkingBoy, Ticket ticket) {
+        return null;
+    }
 }
