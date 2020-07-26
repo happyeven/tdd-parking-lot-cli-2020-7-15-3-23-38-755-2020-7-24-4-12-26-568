@@ -202,4 +202,21 @@ public class ParkingTest {
         Assertions.assertEquals(secondParkingLot,ticket.getCorrespondParkingLot());
     }
 
+    @Test
+    void should_return_ticket_with_correspond_ParkingLot_is_secondParkingLot_when_smart_parking_boy_parking_car_given_1_car_and_3_parkingLots_availableCapacity_respectively_8_10_9() {
+        //given
+        ParkingLot firstParkingLot = new ParkingLot();
+        firstParkingLot.setAvailableCapacity(8);
+        ParkingLot secondParkingLot = new ParkingLot();
+        secondParkingLot.setAvailableCapacity(10);
+        ParkingLot thirdParkingLot = new ParkingLot();
+        thirdParkingLot.setAvailableCapacity(9);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(firstParkingLot, secondParkingLot, thirdParkingLot);
+        //when
+        Ticket ticket = smartParkingBoy.parkingCar(new Car(1));
+        //then
+        Assertions.assertNotNull(ticket);
+        Assertions.assertEquals(secondParkingLot,ticket.getCorrespondParkingLot());
+    }
+
 }
