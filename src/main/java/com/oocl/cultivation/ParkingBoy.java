@@ -8,7 +8,7 @@ import java.util.List;
  * @Date 7/24/2020 4:33 PM
  * @Version 1.0
  */
-public class ParkingBoy {
+public class ParkingBoy implements ParkingBoyStrategy {
     List<ParkingLot> parkingLots = new LinkedList<>();
     String errorMessage;
 
@@ -18,7 +18,8 @@ public class ParkingBoy {
         }
     }
 
-    Ticket parkingCar(Car car) {
+    @Override
+    public Ticket parkingCar(Car car) {
         if (car == null) {
             return null;
         }
@@ -35,9 +36,10 @@ public class ParkingBoy {
         return null;
     }
 
+    @Override
     public Car fetchingCar(Ticket ticket) {
-        if(this.parkingLots.size() == 0){
-            return  null;
+        if (this.parkingLots.size() == 0) {
+            return null;
         }
         for (ParkingLot parkingLot : this.parkingLots) {
             Car car = parkingLot.fetchingCarFromParkingLot(ticket);

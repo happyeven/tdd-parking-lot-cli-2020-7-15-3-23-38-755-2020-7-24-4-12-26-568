@@ -73,3 +73,40 @@ case1:
 given:1 SUPER SMART PARKING BOY 1 car 3 parkingLots available position rate respectively 0.7 0.4 0.8
 when: SUPER SMART PARKING BOY parking
 then: ticket
+
+(story 6)
+case1:
+given: 1 car 1 parkingBoy 1 service manager 1 parkingLot
+when: parking
+then: return ticket
+
+given:1 parkingBoy 1 serviceManager 1 ticket 1parkingLot
+when: fetch
+then:return car
+
+case2:
+given:1 parkingLot 1 car 1 serviceManager
+when: parking
+then: return ticket
+
+given: 1 parkingLot 1 ticket 1 serviceManager
+when: fetching
+then: return car
+
+case3:
+given: 1 parkingLot 1 used ticket 1 serviceManager 1 parkingBoy
+when: fetch
+then: return "Unrecognized parking ticket."
+
+given: 1parkingLot 1 unprovided ticket 1 serviceManager 1 parkingBoy
+when: fetch
+then: return "Unrecognized parking ticket."
+
+given:1parkingLot without ticket 1 serviceManager 1 parkingBoy
+when: fetch
+then: return "Please provide your parking ticket."
+
+given:1parkingLot without availableCapacity 1 car 1 serviceManager 1 parkingBoy
+when: park
+then: return "Not enough position."
+

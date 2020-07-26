@@ -256,4 +256,17 @@ public class ParkingTest {
         Assertions.assertNotNull(ticket);
         Assertions.assertEquals(thirdParkingLot,ticket.getCorrespondParkingLot());
     }
+
+    @Test
+    void should_return_ticket_when_service_manager_specify_parking_boy_from_parkingBoys_parking_car_given_1_car_1_parkingLot() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager(parkingBoy);
+        Car car = new Car(1);
+        //when
+        Ticket ticket = parkingLotServiceManager.specifyParkingBoyToParkingCar(parkingBoy,car);
+        //then
+        Assertions.assertNotNull(ticket);
+    }
 }

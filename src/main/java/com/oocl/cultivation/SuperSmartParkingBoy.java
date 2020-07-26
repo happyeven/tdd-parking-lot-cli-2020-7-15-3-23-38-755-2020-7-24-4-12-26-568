@@ -1,14 +1,14 @@
 package com.oocl.cultivation;
 
-public class SuperSmartParkingBoy extends ParkingBoy {
+public class SuperSmartParkingBoy extends ParkingBoy implements ParkingBoyStrategy {
     public SuperSmartParkingBoy(ParkingLot... parkingLots) {
         super(parkingLots);
     }
 
     @Override
-    Ticket parkingCar(Car car) {
+    public Ticket parkingCar(Car car) {
         double maxAvailablePositionRate = 0;
-        if(this.parkingLots.size() == 0){
+        if (this.parkingLots.size() == 0) {
             return null;
         }
         ParkingLot targetParkingLot = parkingLots.get(0);
@@ -21,7 +21,7 @@ public class SuperSmartParkingBoy extends ParkingBoy {
             }
         }
         Ticket ticket = targetParkingLot.parkingCarTOParkingLot(car);
-        if(ticket == null){
+        if (ticket == null) {
             this.errorMessage = "Not enough position.";
         }
         ticket.setCorrespondParkingLot(targetParkingLot);

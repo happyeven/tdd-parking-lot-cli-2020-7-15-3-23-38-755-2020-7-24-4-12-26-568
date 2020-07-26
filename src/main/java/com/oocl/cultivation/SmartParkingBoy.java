@@ -3,13 +3,13 @@ package com.oocl.cultivation;
 import java.util.LinkedList;
 import java.util.List;
 
-public class SmartParkingBoy extends ParkingBoy {
+public class SmartParkingBoy extends ParkingBoy implements ParkingBoyStrategy{
     public SmartParkingBoy(ParkingLot... parkingLots) {
         super(parkingLots);
     }
 
     @Override
-    Ticket parkingCar(Car car) {
+    public Ticket parkingCar(Car car) {
         if (car == null) {
             return null;
         }
