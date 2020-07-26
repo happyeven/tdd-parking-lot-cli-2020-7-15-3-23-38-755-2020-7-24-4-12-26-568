@@ -310,6 +310,18 @@ public class ParkingTest {
         Car targetCar = parkingLotServiceManager.specifyParkingBoyToFetchingCar(parkingBoyNotManaged, ticket);
         //then
         Assertions.assertNull(targetCar);
+    }
 
+    @Test
+    void should_return_ticket_when_manager_parking_car_given_1_car_1_parking_lot_owned_by_manager() {
+        //given
+        Car car = new Car(1);
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager();
+        parkingLotServiceManager.setParkingLot(parkingLot);
+        //when
+        Ticket ticket = parkingLotServiceManager.parkingCar(car);
+        //then
+        Assertions.assertNotNull(ticket);
     }
 }

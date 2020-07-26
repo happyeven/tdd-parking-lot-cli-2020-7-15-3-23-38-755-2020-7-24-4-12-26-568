@@ -5,6 +5,7 @@ import java.util.List;
 
 public class ParkingLotServiceManager {
     private List<ParkingBoyStrategy> parkingBoys = new LinkedList<>();
+    private List<ParkingLot> parkingLots;
 
     public ParkingLotServiceManager(ParkingBoyStrategy... parkingBoyStrategies) {
         for (ParkingBoyStrategy parkingBoyStrategy : parkingBoyStrategies) {
@@ -30,5 +31,15 @@ public class ParkingLotServiceManager {
             return parkingBoy.fetchingCar(ticket);
         }
         return null;
+    }
+
+    public Ticket parkingCar(Car car) {
+        return null;
+    }
+
+    public void setParkingLot(ParkingLot... parkingLots) {
+        for (ParkingLot parkingLot : parkingLots) {
+            this.parkingLots.add(parkingLot);
+        }
     }
 }
