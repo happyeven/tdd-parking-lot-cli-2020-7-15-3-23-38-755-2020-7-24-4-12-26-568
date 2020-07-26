@@ -80,9 +80,17 @@ given: 1 car 1 parkingBoy 1 service manager 1 parkingLot
 when: parking
 then: return ticket
 
-given:1 parkingBoy 1 serviceManager 1 ticket 1parkingLot
+given: 1 car 1 parkingBoy not managed by manager 1 service manager 1 parkingLot
+when: parking
+then: return null
+
+given:1 parkingBoy managed by manager  1 serviceManager 1 ticket 1parkingLot
 when: fetch
 then:return car
+
+given: 1 car 1 parkingBoy not managed by manager 1 service manager 1 parkingLot
+when: parking
+then: return null
 
 case2:
 given:1 parkingLot 1 car 1 serviceManager

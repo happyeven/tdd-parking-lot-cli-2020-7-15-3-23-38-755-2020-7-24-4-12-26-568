@@ -269,4 +269,17 @@ public class ParkingTest {
         //then
         Assertions.assertNotNull(ticket);
     }
+
+    @Test
+    void should_return_null_when_manager_specify_parking_boy_not_managed_by_him_to_parking_car_given_1_car() {
+        //given
+        Car car = new Car(1);
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager();
+        //when
+        Ticket ticket = parkingLotServiceManager.specifyParkingBoyToParkingCar(parkingBoy, car);
+        //then
+        Assertions.assertNull(ticket);
+    }
 }
