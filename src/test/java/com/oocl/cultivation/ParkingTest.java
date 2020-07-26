@@ -3,7 +3,7 @@ package com.oocl.cultivation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.io.ByteArrayOutputStream;
 
 /**
  * @Author ZHUDO2
@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @Version 1.0
  */
 public class ParkingTest {
+
     @Test
     void should_return_ticket_when_parking_boy_parking_car_given_car_and_parking_boy() {
         //given
@@ -336,7 +337,7 @@ public class ParkingTest {
         //when
         Car targetCar = parkingLotServiceManager.fetchingCar(ticket);
         //then
-        Assertions.assertEquals(targetCar,car);
+        Assertions.assertEquals(targetCar, car);
     }
 
     @Test
