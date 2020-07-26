@@ -54,4 +54,8 @@ public class ParkingLotServiceManager {
             this.parkingLotList.add(parkingLot);
         }
     }
+
+    public Car fetchingCar(Ticket ticket) {
+        return null;
+    }
 }
