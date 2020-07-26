@@ -10,6 +10,10 @@ public class ParkingLot {
         this.availableCapacity = availableCapacity;
     }
 
+    public int getAvailableCapacity() {
+        return availableCapacity;
+    }
+
     public Ticket parkingCarTOParkingLot(Car car) {
         if (availableCapacity == 0) {
             return null;

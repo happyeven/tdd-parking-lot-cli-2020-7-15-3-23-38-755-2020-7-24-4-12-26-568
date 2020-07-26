@@ -1,5 +1,6 @@
 package com.oocl.cultivation;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -9,11 +10,11 @@ import java.util.List;
  */
 public class ParkingBoy {
     private ParkingLot parkingLot;
-    private List<ParkingLot> parkingLots;
+    private List<ParkingLot> parkingLots = new LinkedList<>();
     private String errorMessage = "Unrecognized parking ticket.";
 
     public ParkingBoy(ParkingLot... parkingLots) {
-        for(ParkingLot parkingLot : parkingLots){
+        for (ParkingLot parkingLot : parkingLots) {
             this.parkingLots.add(parkingLot);
         }
         this.parkingLot = this.parkingLots.get(0);
@@ -24,14 +25,16 @@ public class ParkingBoy {
     }
 
     Ticket parkingCar(Car car) {
-        if(car == null){
+        if (car == null) {
             return null;
         }
-        Ticket ticket = this.parkingLot.parkingCarTOParkingLot(car);
-        if(ticket == null){
-            this.errorMessage = "Not enough position.";
+        for (ParkingLot parkingLot : this.parkingLots) {
+            if (parkingLot.getAvailableCapacity() != 0) {
+                return parkingLot.parkingCarTOParkingLot(car);
+            }
         }
-        return ticket;
+        this.errorMessage = "Not enough position.";
+        return null;
     }
 
     public Car fetchingCar(Ticket ticket) {
