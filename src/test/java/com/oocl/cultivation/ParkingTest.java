@@ -99,7 +99,7 @@ public class ParkingTest {
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         int parkingCarIndex = 0;
-        for ( ; parkingCarIndex < 10; parkingCarIndex++) {
+        for (; parkingCarIndex < 10; parkingCarIndex++) {
             parkingBoy.parkingCar(new Car(parkingCarIndex));
         }
         //when
@@ -142,7 +142,7 @@ public class ParkingTest {
         //when
         String errorMessage = parkingBoy.queryErrorMessage();
         //then
-        Assertions.assertEquals("Unrecognized parking ticket.",errorMessage);
+        Assertions.assertEquals("Unrecognized parking ticket.", errorMessage);
 
     }
 
@@ -159,7 +159,7 @@ public class ParkingTest {
         //when
         String errorMessage = parkingBoy.queryErrorMessage();
         //then
-        Assertions.assertEquals("Unrecognized parking ticket.",errorMessage);
+        Assertions.assertEquals("Unrecognized parking ticket.", errorMessage);
     }
 
     @Test
@@ -171,7 +171,7 @@ public class ParkingTest {
         //when
         String errorMessage = parkingBoy.queryErrorMessage();
         //then
-        Assertions.assertEquals("Please provide your parking ticket.",errorMessage);
+        Assertions.assertEquals("Please provide your parking ticket.", errorMessage);
     }
 
     @Test
@@ -184,7 +184,7 @@ public class ParkingTest {
         //when
         String errorMessage = parkingBoy.queryErrorMessage();
         //then
-        Assertions.assertEquals("Not enough position.",errorMessage);
+        Assertions.assertEquals("Not enough position.", errorMessage);
     }
 
     @Test
@@ -199,7 +199,7 @@ public class ParkingTest {
         Ticket ticket = parkingBoy.parkingCar(car);
         //then
         Assertions.assertNotNull(ticket);
-        Assertions.assertEquals(secondParkingLot,ticket.getCorrespondParkingLot());
+        Assertions.assertEquals(secondParkingLot, ticket.getCorrespondParkingLot());
     }
 
     @Test
@@ -216,7 +216,25 @@ public class ParkingTest {
         Ticket ticket = smartParkingBoy.parkingCar(new Car(1));
         //then
         Assertions.assertNotNull(ticket);
-        Assertions.assertEquals(secondParkingLot,ticket.getCorrespondParkingLot());
+        Assertions.assertEquals(secondParkingLot, ticket.getCorrespondParkingLot());
     }
 
+    @Test
+    void
+    should_return_ticket_with_correspond_ParkingLot_is_secondParkingLot_when_smart_parking_boy_parking_car_given_1_car_and_3_parkingLots_availableCapacity_respectively_6_8_8() {
+        //given
+        ParkingLot firstParkingLot = new ParkingLot();
+        firstParkingLot.setAvailableCapacity(6);
+        ParkingLot secondParkingLot = new ParkingLot();
+        secondParkingLot.setAvailableCapacity(8);
+        ParkingLot thirdParkingLot = new ParkingLot();
+        thirdParkingLot.setAvailableCapacity(8);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(firstParkingLot,
+                secondParkingLot, thirdParkingLot);
+        //when
+        Ticket ticket = smartParkingBoy.parkingCar(new Car(1));
+        //then
+        Assertions.assertNotNull(ticket);
+        Assertions.assertEquals(secondParkingLot, ticket.getCorrespondParkingLot());
+    }
 }
