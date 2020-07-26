@@ -22,11 +22,13 @@ public class ParkingBoy {
         if (car == null) {
             return null;
         }
-        for (ParkingLot parkingLot : this.parkingLots) {
-            if (parkingLot.getAvailableCapacity() != 0) {
-                Ticket ticket = parkingLot.parkingCarTOParkingLot(car);
-                ticket.setCorrespondParkingLot(parkingLot);
-                return ticket;
+        if (this.parkingLots.size() != 0) {
+            for (ParkingLot parkingLot : this.parkingLots) {
+                if (parkingLot.getAvailableCapacity() != 0) {
+                    Ticket ticket = parkingLot.parkingCarTOParkingLot(car);
+                    ticket.setCorrespondParkingLot(parkingLot);
+                    return ticket;
+                }
             }
         }
         this.errorMessage = "Not enough position.";
@@ -34,6 +36,9 @@ public class ParkingBoy {
     }
 
     public Car fetchingCar(Ticket ticket) {
+        if(this.parkingLots.size() == 0){
+            return  null;
+        }
         for (ParkingLot parkingLot : this.parkingLots) {
             Car car = parkingLot.fetchingCarFromParkingLot(ticket);
             if (car != null) {
