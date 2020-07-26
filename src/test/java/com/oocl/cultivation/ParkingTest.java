@@ -249,12 +249,12 @@ public class ParkingTest {
         thirdParkingLot.setCapacity(5);
         thirdParkingLot.setAvailableCapacity(4);
         Car car = new Car(1);
-        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(firstParkingLot,secondParkingLot,thirdParkingLot);
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(firstParkingLot, secondParkingLot, thirdParkingLot);
         //when
         Ticket ticket = superSmartParkingBoy.parkingCar(car);
         //then
         Assertions.assertNotNull(ticket);
-        Assertions.assertEquals(thirdParkingLot,ticket.getCorrespondParkingLot());
+        Assertions.assertEquals(thirdParkingLot, ticket.getCorrespondParkingLot());
     }
 
     @Test
@@ -265,7 +265,7 @@ public class ParkingTest {
         ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager(parkingBoy);
         Car car = new Car(1);
         //when
-        Ticket ticket = parkingLotServiceManager.specifyParkingBoyToParkingCar(parkingBoy,car);
+        Ticket ticket = parkingLotServiceManager.specifyParkingBoyToParkingCar(parkingBoy, car);
         //then
         Assertions.assertNotNull(ticket);
     }
@@ -292,8 +292,24 @@ public class ParkingTest {
         ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager(parkingBoy);
         Ticket ticket = parkingLotServiceManager.specifyParkingBoyToParkingCar(parkingBoy, car);
         //when
-        Car targetCar = parkingLotServiceManager.specifyParkingBoyToFetchingCar(parkingBoy,ticket);
+        Car targetCar = parkingLotServiceManager.specifyParkingBoyToFetchingCar(parkingBoy, ticket);
         //then
         Assertions.assertNotNull(targetCar);
+    }
+
+    @Test
+    void should_return_null_when_manager_specify_parking_boy_not_managed_by_him_to_fetching_car_given_ticket() {
+        //given
+        Car car = new Car(1);
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoyManaged = new ParkingBoy(parkingLot);
+        ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager(parkingBoyManaged);
+        ParkingBoy parkingBoyNotManaged = new ParkingBoy(parkingLot);
+        Ticket ticket = parkingLotServiceManager.specifyParkingBoyToParkingCar(parkingBoyManaged, car);
+        //when
+        Car targetCar = parkingLotServiceManager.specifyParkingBoyToFetchingCar(parkingBoyNotManaged, ticket);
+        //then
+        Assertions.assertNull(targetCar);
+
     }
 }
