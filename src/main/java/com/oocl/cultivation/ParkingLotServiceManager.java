@@ -39,7 +39,7 @@ public class ParkingLotServiceManager extends ParkingBoy {
     }
 
     public String displayErrorMessage(ParkingBoy parkingBoy) {
-        return "Unrecognized parking ticket.";
+        return parkingBoy.errorMessage;
     }
 
     public void specifyParkingBoyToFetchingCarWithoutTicket(ParkingBoy parkingBoy) {
