@@ -188,7 +188,7 @@ public class ParkingTest {
     }
 
     @Test
-    void should_return_ticket_when_parking_car_given_1_car_1_full_parkingLot_and_1_available_parkingLot() {
+    void should_return_ticket_with_correspondParkingLot_is_secondParkingLot_when_parking_car_given_1_car_1_full_parkingLot_and_1_available_parkingLot() {
         //given
         ParkingLot firstParkingLot = new ParkingLot();
         firstParkingLot.setCapacity(0);
@@ -199,5 +199,6 @@ public class ParkingTest {
         Ticket ticket = parkingBoy.parkingCar(car);
         //then
         Assertions.assertNotNull(ticket);
+        Assertions.assertEquals(secondParkingLot,ticket.getCorrespondParkingLot());
     }
 }
