@@ -186,4 +186,18 @@ public class ParkingTest {
         //then
         Assertions.assertEquals("Not enough position.",errorMessage);
     }
+
+    @Test
+    void should_return_ticket_when_parking_car_given_1_car_1_full_parkingLot_and_1_available_parkingLot() {
+        //given
+        ParkingLot firstParkingLot = new ParkingLot();
+        firstParkingLot.setCapacity(0);
+        ParkingLot secondParkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(firstParkingLot, secondParkingLot);
+        Car car = new Car(1);
+        //when
+        Ticket ticket = parkingBoy.parkingCar(car);
+        //then
+        Assertions.assertNotNull(ticket);
+    }
 }

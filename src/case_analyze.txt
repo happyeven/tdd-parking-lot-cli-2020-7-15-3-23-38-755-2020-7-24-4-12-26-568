@@ -54,3 +54,11 @@ case3:
 given: 1 car 1 parkingBoy 1 parkingLot
 when: query error message
 then: return message(Not enough position.)
+
+(story 3)
+case1:
+given: 1 parkingBoy 1 car 2parkingLot(one is full ,the other one is available)
+when: parkingBoy parking car
+then: return ticket
+
+case2:

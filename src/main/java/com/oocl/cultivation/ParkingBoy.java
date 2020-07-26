@@ -1,5 +1,7 @@
 package com.oocl.cultivation;
 
+import java.util.List;
+
 /**
  * @Author ZHUDO2
  * @Date 7/24/2020 4:33 PM
@@ -7,10 +9,18 @@ package com.oocl.cultivation;
  */
 public class ParkingBoy {
     private ParkingLot parkingLot;
+    private List<ParkingLot> parkingLots;
     private String errorMessage = "Unrecognized parking ticket.";
 
-    public ParkingBoy(ParkingLot parkingLot) {
-        this.parkingLot = parkingLot;
+    public ParkingBoy(ParkingLot... parkingLots) {
+        for(ParkingLot parkingLot : parkingLots){
+            this.parkingLots.add(parkingLot);
+        }
+        this.parkingLot = this.parkingLots.get(0);
+    }
+
+    public ParkingBoy(List<ParkingLot> parkingLots) {
+        this.parkingLots = parkingLots;
     }
 
     Ticket parkingCar(Car car) {
