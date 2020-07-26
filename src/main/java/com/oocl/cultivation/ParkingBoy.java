@@ -9,7 +9,6 @@ import java.util.List;
  * @Version 1.0
  */
 public class ParkingBoy {
-    private ParkingLot parkingLot;
     private List<ParkingLot> parkingLots = new LinkedList<>();
     private String errorMessage = "Unrecognized parking ticket.";
 
@@ -17,7 +16,6 @@ public class ParkingBoy {
         for (ParkingLot parkingLot : parkingLots) {
             this.parkingLots.add(parkingLot);
         }
-        this.parkingLot = this.parkingLots.get(0);
     }
 
     public ParkingBoy(List<ParkingLot> parkingLots) {
@@ -38,7 +36,13 @@ public class ParkingBoy {
     }
 
     public Car fetchingCar(Ticket ticket) {
-        return this.parkingLot.fetchingCarFromParkingLot(ticket);
+        for(ParkingLot parkingLot : this.parkingLots){
+            Car car = parkingLot.fetchingCarFromParkingLot(ticket);
+            if(car != null){
+                return car;
+            }
+        }
+        return null;
     }
 
     public Car fetchingCarWithoutTicket() {
