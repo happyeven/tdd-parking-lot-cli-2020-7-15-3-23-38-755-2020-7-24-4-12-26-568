@@ -3,12 +3,16 @@ package com.oocl.cultivation;
 import java.util.HashMap;
 
 public class ParkingLot {
-    private int capacity;
+    private int capacity = 10;
     private int availableCapacity = 10;
     private HashMap<Ticket, Car> parkingCars = new HashMap<>();
 
-    public void setCapacity(int availableCapacity) {
-        this.availableCapacity = availableCapacity;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public int getCapacity() {
+        return capacity;
     }
 
     public void setAvailableCapacity(int availableCapacity) {

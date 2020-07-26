@@ -178,7 +178,7 @@ public class ParkingTest {
     void should_return_not_enough_position_when_query_error_message_given_1_car_and_parkingLot_without_position() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        parkingLot.setCapacity(0);
+        parkingLot.setAvailableCapacity(0);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         parkingBoy.parkingCar(new Car(1));
         //when
