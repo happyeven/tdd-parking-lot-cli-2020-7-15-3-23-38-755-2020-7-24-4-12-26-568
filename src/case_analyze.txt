@@ -67,3 +67,9 @@ case1:
 given: 1 SMART PARKING BOY 1car multiple parkingLots
 when:   parking
 then:  ticket
+
+(story 5)
+case1:
+given:1 SUPER SMART PARKING BOY 1 car 3 parkingLots available position rate respectively 0.7 0.4 0.8
+when: SUPER SMART PARKING BOY parking
+then: ticket
