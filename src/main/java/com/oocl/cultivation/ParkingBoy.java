@@ -24,7 +24,9 @@ public class ParkingBoy {
         }
         for (ParkingLot parkingLot : this.parkingLots) {
             if (parkingLot.getAvailableCapacity() != 0) {
-                return parkingLot.parkingCarTOParkingLot(car);
+                Ticket ticket = parkingLot.parkingCarTOParkingLot(car);
+                ticket.setCorrespondParkingLot(parkingLot);
+                return ticket;
             }
         }
         this.errorMessage = "Not enough position.";

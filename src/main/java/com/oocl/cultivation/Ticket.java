@@ -8,11 +8,21 @@ package com.oocl.cultivation;
 public class Ticket {
     private int ticketId;
 
+    private ParkingLot correspondParkingLot;
+
     public int getTicketId() {
         return ticketId;
     }
 
     public Ticket(int ticketId) {
         this.ticketId = ticketId;
+    }
+
+    public void setCorrespondParkingLot(ParkingLot correspondParkingLot) {
+        this.correspondParkingLot = correspondParkingLot;
+    }
+
+    public ParkingLot getCorrespondParkingLot() {
+        return correspondParkingLot;
     }
 }
