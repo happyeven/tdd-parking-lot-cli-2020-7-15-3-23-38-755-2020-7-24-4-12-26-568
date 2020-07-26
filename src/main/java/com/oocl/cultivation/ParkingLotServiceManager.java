@@ -7,22 +7,28 @@ public class ParkingLotServiceManager {
     private List<ParkingBoyStrategy> parkingBoys = new LinkedList<>();
 
     public ParkingLotServiceManager(ParkingBoyStrategy... parkingBoyStrategies) {
-        for(ParkingBoyStrategy parkingBoyStrategy : parkingBoyStrategies){
+        for (ParkingBoyStrategy parkingBoyStrategy : parkingBoyStrategies) {
             parkingBoys.add(parkingBoyStrategy);
         }
     }
 
     public Ticket specifyParkingBoyToParkingCar(ParkingBoy parkingBoy, Car car) {
-        if(this.parkingBoys.size() == 0){
+        if (this.parkingBoys.size() == 0) {
             return null;
         }
-        if(this.parkingBoys.contains(parkingBoy)){
+        if (this.parkingBoys.contains(parkingBoy)) {
             return parkingBoy.parkingCar(car);
         }
         return null;
     }
 
     public Car specifyParkingBoyToFetchingCar(ParkingBoy parkingBoy, Ticket ticket) {
+        if (this.parkingBoys.size() == 0) {
+            return null;
+        }
+        if (this.parkingBoys.contains(parkingBoy)) {
+            return parkingBoy.fetchingCar(ticket);
+        }
         return null;
     }
 }
