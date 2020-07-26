@@ -13,6 +13,12 @@ public class ParkingLotServiceManager {
     }
 
     public Ticket specifyParkingBoyToParkingCar(ParkingBoy parkingBoy, Car car) {
+        if(this.parkingBoys.size() == 0){
+            return null;
+        }
+        if(this.parkingBoys.contains(parkingBoy)){
+            return parkingBoy.parkingCar(car);
+        }
         return null;
     }
 }
