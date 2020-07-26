@@ -9,8 +9,8 @@ import java.util.List;
  * @Version 1.0
  */
 public class ParkingBoy {
-    private List<ParkingLot> parkingLots = new LinkedList<>();
-    private String errorMessage;
+    List<ParkingLot> parkingLots = new LinkedList<>();
+    String errorMessage;
 
     public ParkingBoy(ParkingLot... parkingLots) {
         for (ParkingLot parkingLot : parkingLots) {
