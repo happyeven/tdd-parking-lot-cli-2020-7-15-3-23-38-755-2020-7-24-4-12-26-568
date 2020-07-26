@@ -381,4 +381,19 @@ public class ParkingTest {
         //then
         Assertions.assertEquals("Please provide your parking ticket.",errorMessage);
     }
+
+    @Test
+    void should_return_not_enough_position_when_manager_specify_parking_boy_parking_car_given_1_car_1_parkingLot_with_0_availableCapacity() {
+        //given
+        Car car = new Car(1);
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLot.setAvailableCapacity(0);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager(parkingBoy);
+        parkingLotServiceManager.specifyParkingBoyToParkingCar(parkingBoy,car);
+        //when
+        String errorMessage = parkingLotServiceManager.displayErrorMessage(parkingBoy);
+        //then
+        Assertions.assertEquals("Not enough position.",errorMessage);
+    }
 }
