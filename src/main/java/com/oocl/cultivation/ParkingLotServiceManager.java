@@ -3,7 +3,7 @@ package com.oocl.cultivation;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ParkingLotServiceManager extends ParkingBoy{
+public class ParkingLotServiceManager extends ParkingBoy {
     private List<ParkingBoyStrategy> parkingBoys = new LinkedList<>();
 
     public ParkingLotServiceManager(ParkingBoyStrategy... parkingBoyStrategies) {
@@ -36,5 +36,9 @@ public class ParkingLotServiceManager extends ParkingBoy{
         for (ParkingLot parkingLot : parkingLotList) {
             this.parkingLots.add(parkingLot);
         }
+    }
+
+    public String displayErrorMessage(ParkingBoy parkingBoy) {
+        return null;
     }
 }
