@@ -1,6 +1,8 @@
 package com.oocl.cultivation;
 
-public class SmartParkingBoy extends ParkingBoy implements ParkingBoyStrategy{
+import java.util.List;
+
+public class SmartParkingBoy extends ParkingBoy implements ParkingBoyStrategy {
     public SmartParkingBoy(ParkingLot... parkingLots) {
         super(parkingLots);
     }
@@ -10,19 +12,20 @@ public class SmartParkingBoy extends ParkingBoy implements ParkingBoyStrategy{
         if (car == null) {
             return null;
         }
-        if(this.parkingLots.size() == 0){
+        if (this.parkingLots.size() == 0) {
             return null;
         }
-        ParkingLot targetParkingLot = selectParkingLot();
+        ParkingLot targetParkingLot = selectParkingLot(this.parkingLots);
         Ticket ticket = targetParkingLot.parkingCarToParkingLot(car);
-        if(ticket == null){
+        if (ticket == null) {
             this.errorMessage = "Not enough position.";
         }
         ticket.setCorrespondParkingLot(targetParkingLot);
         return ticket;
     }
 
-    private ParkingLot selectParkingLot() {
+    @Override
+    public ParkingLot selectParkingLot(List<ParkingLot> parkingLots) {
         ParkingLot targetParkingLot = this.parkingLots.get(0);
         for (ParkingLot parkingLot : this.parkingLots) {
             if (parkingLot.getAvailableCapacity() > targetParkingLot.getAvailableCapacity()) {

@@ -1,6 +1,7 @@
 package com.oocl.cultivation;
 
+import java.util.List;
+
 public interface ParkingBoyStrategy {
-    Car fetchingCar(Ticket ticket);
-    Ticket parkingCar(Car car);
+    ParkingLot selectParkingLot(List<ParkingLot> parkingLots);
 }

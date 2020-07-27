@@ -18,7 +18,6 @@ public class ParkingBoy implements ParkingBoyStrategy {
         }
     }
 
-    @Override
     public Ticket parkingCar(Car car) {
         if (car == null) {
             return null;
@@ -35,8 +34,6 @@ public class ParkingBoy implements ParkingBoyStrategy {
         this.errorMessage = "Not enough position.";
         return null;
     }
-
-    @Override
     public Car fetchingCar(Ticket ticket) {
         if (ticket == null) {
             return null;
@@ -61,5 +58,11 @@ public class ParkingBoy implements ParkingBoyStrategy {
 
     public String queryErrorMessage() {
         return this.errorMessage;
+    }
+
+    @Override
+    public ParkingLot selectParkingLot(List<ParkingLot> parkingLots) {
+        return  new ParkingLot();
+        //return parkingLots.stream().filter(parkingLot -> parkingLot.getAvailableCapacity() != 0).map
     }
 }
