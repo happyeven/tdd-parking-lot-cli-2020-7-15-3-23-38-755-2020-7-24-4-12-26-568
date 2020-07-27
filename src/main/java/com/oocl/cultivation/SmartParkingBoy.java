@@ -24,11 +24,8 @@ public class SmartParkingBoy extends ParkingBoy implements ParkingBoyStrategy{
 
     private ParkingLot selectParkingLot() {
         ParkingLot targetParkingLot = this.parkingLots.get(0);
-        int maxAvailableCapacity = targetParkingLot.getAvailableCapacity();
         for (ParkingLot parkingLot : this.parkingLots) {
-            int availableCapacity = parkingLot.getAvailableCapacity();
-            if (availableCapacity > maxAvailableCapacity) {
-                maxAvailableCapacity = availableCapacity;
+            if (parkingLot.getAvailableCapacity() > targetParkingLot.getAvailableCapacity()) {
                 targetParkingLot = parkingLot;
             }
         }
