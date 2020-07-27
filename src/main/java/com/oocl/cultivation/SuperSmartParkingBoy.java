@@ -11,19 +11,22 @@ public class SuperSmartParkingBoy extends ParkingBoy implements ParkingBoyStrate
         if (this.parkingLots.size() == 0) {
             return null;
         }
-        ParkingLot targetParkingLot = parkingLots.get(0);
-        for (ParkingLot parkingLot : parkingLots) {
-            double availablePositionRate = parkingLot.getAvailablePositionRate();
-            if (availablePositionRate > maxAvailablePositionRate) {
-                maxAvailablePositionRate = availablePositionRate;
-                targetParkingLot = parkingLot;
-            }
-        }
+        ParkingLot targetParkingLot = selectParkingLot();
         Ticket ticket = targetParkingLot.parkingCarToParkingLot(car);
         if (ticket == null) {
             this.errorMessage = "Not enough position.";
         }
         ticket.setCorrespondParkingLot(targetParkingLot);
         return ticket;
+    }
+
+    private ParkingLot selectParkingLot() {
+        ParkingLot targetParkingLot = parkingLots.get(0);
+        for (ParkingLot parkingLot : parkingLots) {
+            if (parkingLot.getAvailablePositionRate() > targetParkingLot.getAvailablePositionRate()) {
+                targetParkingLot = parkingLot;
+            }
+        }
+        return targetParkingLot;
     }
 }
