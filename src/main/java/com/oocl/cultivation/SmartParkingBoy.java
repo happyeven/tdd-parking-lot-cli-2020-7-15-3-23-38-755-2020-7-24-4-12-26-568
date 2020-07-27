@@ -13,6 +13,16 @@ public class SmartParkingBoy extends ParkingBoy implements ParkingBoyStrategy{
         if(this.parkingLots.size() == 0){
             return null;
         }
+        ParkingLot targetParkingLot = selectParkingLot();
+        Ticket ticket = targetParkingLot.parkingCarToParkingLot(car);
+        if(ticket == null){
+            this.errorMessage = "Not enough position.";
+        }
+        ticket.setCorrespondParkingLot(targetParkingLot);
+        return ticket;
+    }
+
+    private ParkingLot selectParkingLot() {
         ParkingLot targetParkingLot = this.parkingLots.get(0);
         int maxAvailableCapacity = targetParkingLot.getAvailableCapacity();
         for (ParkingLot parkingLot : this.parkingLots) {
@@ -22,11 +32,6 @@ public class SmartParkingBoy extends ParkingBoy implements ParkingBoyStrategy{
                 targetParkingLot = parkingLot;
             }
         }
-        Ticket ticket = targetParkingLot.parkingCarToParkingLot(car);
-        if(ticket == null){
-            this.errorMessage = "Not enough position.";
-        }
-        ticket.setCorrespondParkingLot(targetParkingLot);
-        return ticket;
+        return targetParkingLot;
     }
 }

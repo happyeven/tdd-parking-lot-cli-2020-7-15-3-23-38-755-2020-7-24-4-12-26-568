@@ -40,25 +40,26 @@ public class ParkingBoy implements ParkingBoyStrategy {
     public Car fetchingCar(Ticket ticket) {
         if (ticket == null) {
             return null;
-            if (this.parkingLots.size() == 0) {
-                return null;
-            }
-            for (ParkingLot parkingLot : this.parkingLots) {
-                Car car = parkingLot.fetchingCarFromParkingLot(ticket);
-                if (car != null) {
-                    return car;
-                }
-            }
-            this.errorMessage = "Unrecognized parking ticket.";
+        }
+        if (this.parkingLots.size() == 0) {
             return null;
         }
-
-        public Car fetchingCarWithoutTicket () {//todo
-            this.errorMessage = "Please provide your parking ticket.";
-            return null;
+        for (ParkingLot parkingLot : this.parkingLots) {
+            Car car = parkingLot.fetchingCarFromParkingLot(ticket);
+            if (car != null) {
+                return car;
+            }
         }
-
-        public String queryErrorMessage () {
-            return this.errorMessage;
-        }
+        this.errorMessage = "Unrecognized parking ticket.";
+        return null;
     }
+
+    public Car fetchingCarWithoutTicket() {//todo
+        this.errorMessage = "Please provide your parking ticket.";
+        return null;
+    }
+
+    public String queryErrorMessage() {
+        return this.errorMessage;
+    }
+}

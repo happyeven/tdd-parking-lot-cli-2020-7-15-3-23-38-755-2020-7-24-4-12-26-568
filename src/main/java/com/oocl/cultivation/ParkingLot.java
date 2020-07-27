@@ -37,4 +37,9 @@ public class ParkingLot {
         this.availableCapacity++;
         return this.parkingCars.remove(ticket);
     }
+
+    public double getAvailablePositionRate() {
+        return (double) this.availableCapacity/
+                this.capacity;
+    }
 }

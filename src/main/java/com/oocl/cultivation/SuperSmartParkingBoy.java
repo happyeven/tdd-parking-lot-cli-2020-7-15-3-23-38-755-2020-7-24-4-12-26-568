@@ -13,8 +13,7 @@ public class SuperSmartParkingBoy extends ParkingBoy implements ParkingBoyStrate
         }
         ParkingLot targetParkingLot = parkingLots.get(0);
         for (ParkingLot parkingLot : parkingLots) {
-            double availablePositionRate = (double) parkingLot.getAvailableCapacity() /
-                    parkingLot.getCapacity();
+            double availablePositionRate = parkingLot.getAvailablePositionRate();
             if (availablePositionRate > maxAvailablePositionRate) {
                 maxAvailablePositionRate = availablePositionRate;
                 targetParkingLot = parkingLot;
