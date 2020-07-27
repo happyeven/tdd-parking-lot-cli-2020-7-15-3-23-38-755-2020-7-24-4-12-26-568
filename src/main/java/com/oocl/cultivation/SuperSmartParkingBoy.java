@@ -6,7 +6,7 @@ public class SuperSmartParkingBoy extends ParkingBoy implements ParkingBoyStrate
     }
 
     @Override
-    public Ticket parkingCar(Car car) {
+    public Ticket parkingCar(Car car) {// todo extract a strategy
         double maxAvailablePositionRate = 0;
         if (this.parkingLots.size() == 0) {
             return null;
@@ -20,7 +20,7 @@ public class SuperSmartParkingBoy extends ParkingBoy implements ParkingBoyStrate
                 targetParkingLot = parkingLot;
             }
         }
-        Ticket ticket = targetParkingLot.parkingCarTOParkingLot(car);
+        Ticket ticket = targetParkingLot.parkingCarToParkingLot(car);
         if (ticket == null) {
             this.errorMessage = "Not enough position.";
         }

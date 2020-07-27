@@ -11,10 +11,6 @@ public class ParkingLot {
         this.capacity = capacity;
     }
 
-    public int getCapacity() {
-        return capacity;
-    }
-
     public void setAvailableCapacity(int availableCapacity) {
         this.availableCapacity = availableCapacity;
     }
@@ -23,7 +19,7 @@ public class ParkingLot {
         return availableCapacity;
     }
 
-    public Ticket parkingCarTOParkingLot(Car car) {
+    public Ticket parkingCarToParkingLot(Car car) {
         if (availableCapacity == 0) {
             return null;
         }
@@ -33,7 +29,12 @@ public class ParkingLot {
         return ticket;
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
     public Car fetchingCarFromParkingLot(Ticket ticket) {
+        this.availableCapacity++;
         return this.parkingCars.remove(ticket);
     }
 }

@@ -1,8 +1,5 @@
 package com.oocl.cultivation;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class SmartParkingBoy extends ParkingBoy implements ParkingBoyStrategy{
     public SmartParkingBoy(ParkingLot... parkingLots) {
         super(parkingLots);
@@ -25,7 +22,7 @@ public class SmartParkingBoy extends ParkingBoy implements ParkingBoyStrategy{
                 targetParkingLot = parkingLot;
             }
         }
-        Ticket ticket = targetParkingLot.parkingCarTOParkingLot(car);
+        Ticket ticket = targetParkingLot.parkingCarToParkingLot(car);
         if(ticket == null){
             this.errorMessage = "Not enough position.";
         }
